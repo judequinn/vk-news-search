@@ -1,0 +1,29 @@
+/* Form */
+#request-form {
+	margin: 30px 0;
+}
+
+/* Single entry */
+.single-entry {
+	border-top: 1px solid #848482;
+	padding: 20px;
+}
+
+.entry-text {
+	margin: 15px 0px;
+}
+
+/* Input */
+input.ng-dirty.ng-valid {
+    border-color: green;
+}
+
+input.ng-dirty.ng-invalid {
+    border-color: red;
+}
+
+/* Flexslider */
+.flexslider-container {
+	width: 50%;
+	margin: 10px auto;
+}

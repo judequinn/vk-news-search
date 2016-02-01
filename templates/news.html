@@ -1,0 +1,26 @@
+<div>
+	<div class="row">
+		<div class="col-lg-6">
+			<span class="text-muted"><i>Автор</i>: {{entry.user.first_name || entry.group.name}} {{entry.user.last_name}}</span>
+		</div>
+		<div class="col-lg-2 pull-right"> 
+			<span class="text-muted"><i>Дата</i>: {{entry.date * 1000 | date:'dd.MM.yyyy HH:mm'}}</span>
+		</div>
+		<div class="col-lg-1 pull-right"> 
+			<span class="text-primary"><span class="glyphicon glyphicon-thumbs-up"></span> {{entry.likes.count}}</span>
+		</div>
+		<div class="col-lg-10 well entry-text" ng-bind-html="entry.text | htmlToPlaintext | addressToPlaintext" ng-show="entry.text">
+			{{entry.text}}
+		</div>
+		<div class="col-lg-10 entry-text" ng-hide="entry.text">
+			<p class="text-warning"><i>В этой новости нет текста!</i></p>
+		</div>
+	</div> <!-- End of row -->
+	<div class="col-md-6 col-md-offset-3" ng-show="entry.attachments[0].type === 'photo'">
+	  	<flex-slider flex-slide="photo in entry.attachments track by $index" item-width="130" direction-nav="false" slideshow="false">
+			<li> 
+				<a href="{{photo.photo.src_xxxbig || photo.photo.src_xxbig || photo.photo.src_big || photo.photo.src}}" target="_blank"><img ng-src="{{photo.photo.src_big || photo.photo.src.small}}"></img></a>
+			</li>
+	  	</flex-slider> <!-- End of flexslider -->
+	</div> <!-- End of gallery div -->
+</div>
